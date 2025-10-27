@@ -22,6 +22,11 @@ build/
 *.a
 *.lib
 
+# Model files
+*.bin
+model.bin
+*.safetensors
+
 # Web
 apps/web/pkg/
 apps/web/node_modules/

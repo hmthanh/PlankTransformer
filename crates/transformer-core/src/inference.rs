@@ -1,6 +1,6 @@
 //! Inference engine
 
-use crate::{GpuContext, TransformerModel, Tensor};
+use crate::{GpuContext, TransformerModel};
 use anyhow::Result;
 
 /// Run a forward pass through the transformer model
