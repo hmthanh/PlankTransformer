@@ -1,0 +1,49 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/transformer-core",
+    "crates/transformer-ffi",
+    "apps/web",
+    "apps/desktop",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["PlankTransformer Contributors"]
+
+[workspace.dependencies]
+# Core dependencies
+bytemuck = { version = "1.14", features = ["derive"] }
+wgpu = "0.19"
+pollster = "0.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+
+# For FFI
+libc = "0.2"
+
+# For WASM
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = [
+    "console",
+    "Window",
+    "Document",
+    "HtmlElement",
+    "Navigator",
+    "Gpu",
+    "GpuAdapter",
+    "GpuDevice",
+    "GpuQueue",
+] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
